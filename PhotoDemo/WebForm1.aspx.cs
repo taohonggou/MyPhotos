@@ -12,6 +12,8 @@ namespace PhotoDemo
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //Response.Write(Request.RawUrl);
+            //Response.Write("<br/>"+ Request.Url.ToString());
         }
     }
 }

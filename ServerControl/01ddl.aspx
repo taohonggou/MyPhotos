@@ -13,8 +13,9 @@
     
         <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         </asp:DropDownList>
-    
+    <a href="07Request.aspx">07Request</a>
     </div>
+        <img src="http://localhost:50686/images/10.jpg" />
     </form>
 </body>
 </html>
