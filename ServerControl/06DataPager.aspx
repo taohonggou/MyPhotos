@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-  <%--  <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div>
             <asp:DataPager ID="DataPager1" PagedControlID="ListView1"  runat="server" PageSize="8" QueryStringField="p">
                 <Fields>
@@ -227,6 +227,6 @@
             </asp:DataPager>
 
         </div>
-    </form>--%>
+    </form>
 </body>
 </html>
