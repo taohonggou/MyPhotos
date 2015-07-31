@@ -1,0 +1,62 @@
+﻿#parse("front/header.html")
+
+<div class="wrapper col2">
+    <div class="container">
+        
+        <div id="content">
+            <h1>$model.p.PTitle</h1>
+            <div id="screen"><a href="#"><img src="/images/$model.p.PUrl" width="660" alt=""></a></div>
+            <div id="info">
+                <p>This is a W3C standards compliant free website template from <a href="http://www.os-templates.com/">OS Templates</a>. This template is distributed using a <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>, which allows you to use and modify the template for both personal and commercial use when you keep the provided credit links in the footer. For more CSS templates visit <a href="http://www.os-templates.com/">Free Website Templates</a>.</p>
+            </div>
+            <div id="comments">
+                <h2>Comments</h2>
+                <ul class="commentlist">
+                    <li class="comment_odd">
+                        <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt=""><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
+                        <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
+                        <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+                    </li>
+                    <li class="comment_even">
+                        <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt=""><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
+                        <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
+                        <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+                    </li>
+                    <li class="comment_odd">
+                        <div class="author"><img class="avatar" src="images/demo/avatar.gif" width="32" height="32" alt=""><span class="name"><a href="#">A Name</a></span> <span class="wrote">wrote:</span></div>
+                        <div class="submitdate"><a href="#">August 4, 2009 at 8:35 am</a></div>
+                        <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+                    </li>
+                </ul>
+            </div>
+            <h2>Write A Comment</h2>
+            <div id="respond">
+                <form action="#" method="post">
+                    <p>
+                        <input type="text" name="name" id="name" value="" size="22">
+                        <label for="name"><small>Name (required)</small></label>
+                    </p>
+                    <p>
+                        <input type="text" name="email" id="email" value="" size="22">
+                        <label for="email"><small>Mail (required)</small></label>
+                    </p>
+                    <p>
+                        <textarea name="message" id="message" cols="100%" rows="10"></textarea>
+                        <label for="message" style="display:none;"><small>Message</small></label>
+                    </p>
+                    <p>
+                        <input name="submit" type="submit" id="submit" value="Submit Form">
+                        &nbsp;
+                        <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form">
+                    </p>
+                </form>
+            </div>
+        </div>
+       
+        #parse("front/center-right.html")
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+#Parse("front/footer.html")

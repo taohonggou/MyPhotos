@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        #tb {
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+
+            #tb td, #tb th {
+                border: 1px solid red;
+            }
+
+            #tb th {
+                height: 40px;
+                background-color: #4cff00;
+            }
+    </style>
+
+</head>
+<body>
+    <center>
+        <b>我的相册</b>
+        <table id="tb">
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>图片</th>
+                <th>点击次数</th>
+                <th>赞</th>
+                <th>反对</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            <!--用模板-->
+            #set($flag=0)
+            #foreach($p in $data)
+            #set($flag=$flag+1)
+            <tr>
+                <td>$flag</td>
+                <td>$p.PTitle</td>
+                <td>$p.PUrl</td>
+                <td>$p.PClicks</td>
+                <td>$p.PUp</td>
+                <td>$p.PDown</td>
+                <td>$p.PTime</td>
+                <td>编辑 删除</td>
+            </tr>
+            #end
+            
+        </table>
+    </center>
+</body>
+</html>

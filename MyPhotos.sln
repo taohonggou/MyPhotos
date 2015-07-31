@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPhotos.Model", "MyPhotos.Model\MyPhotos.Model.csproj", "{0EFF2D46-9D12-412C-A9E8-12DEE64F58D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPhotos.DAL", "MyPhotos.DAL\MyPhotos.DAL.csproj", "{ED8CCE55-574D-455E-A044-791DC2253022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPhotos.BLL", "MyPhotos.BLL\MyPhotos.BLL.csproj", "{C0206D0C-3561-495C-9C8C-276D46C0D9CF}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MyPhotos", "http://localhost:61412", "{BCA5F551-783D-4412-9A0A-BBB4E81A52B1}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{c0206d0c-3561-495c-9c8c-276d46c0d9cf}|MyPhotos.BLL.dll;{0eff2d46-9d12-412c-a9e8-12dee64f58d4}|MyPhotos.Model.dll;{43AF8B00-EEB8-4B3F-BCE7-FC1F05CD558B}|Common.dll;{ED8CCE55-574D-455E-A044-791DC2253022}|MyPhotos.DAL.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61412"
+		Debug.AspNetCompiler.PhysicalPath = "MyPhotos\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61412\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61412"
+		Release.AspNetCompiler.PhysicalPath = "MyPhotos\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61412\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "MyPhotos\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{43AF8B00-EEB8-4B3F-BCE7-FC1F05CD558B}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Test", "http://localhost:62169", "{EE322C5C-21BD-4FE5-AE96-27D99015E140}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62169"
+		Debug.AspNetCompiler.PhysicalPath = "Test\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62169\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62169"
+		Release.AspNetCompiler.PhysicalPath = "Test\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62169\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Test\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerControl", "ServerControl\ServerControl.csproj", "{FF6BE798-B1A4-4BFC-A7BA-A8A777063744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoDemo", "PhotoDemo\PhotoDemo.csproj", "{38E57028-B77B-44D9-9DA9-07FFBD86B213}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EFF2D46-9D12-412C-A9E8-12DEE64F58D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EFF2D46-9D12-412C-A9E8-12DEE64F58D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EFF2D46-9D12-412C-A9E8-12DEE64F58D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EFF2D46-9D12-412C-A9E8-12DEE64F58D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED8CCE55-574D-455E-A044-791DC2253022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8CCE55-574D-455E-A044-791DC2253022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8CCE55-574D-455E-A044-791DC2253022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8CCE55-574D-455E-A044-791DC2253022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0206D0C-3561-495C-9C8C-276D46C0D9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0206D0C-3561-495C-9C8C-276D46C0D9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0206D0C-3561-495C-9C8C-276D46C0D9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0206D0C-3561-495C-9C8C-276D46C0D9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCA5F551-783D-4412-9A0A-BBB4E81A52B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA5F551-783D-4412-9A0A-BBB4E81A52B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA5F551-783D-4412-9A0A-BBB4E81A52B1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA5F551-783D-4412-9A0A-BBB4E81A52B1}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{43AF8B00-EEB8-4B3F-BCE7-FC1F05CD558B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43AF8B00-EEB8-4B3F-BCE7-FC1F05CD558B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43AF8B00-EEB8-4B3F-BCE7-FC1F05CD558B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43AF8B00-EEB8-4B3F-BCE7-FC1F05CD558B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE322C5C-21BD-4FE5-AE96-27D99015E140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE322C5C-21BD-4FE5-AE96-27D99015E140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE322C5C-21BD-4FE5-AE96-27D99015E140}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE322C5C-21BD-4FE5-AE96-27D99015E140}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FF6BE798-B1A4-4BFC-A7BA-A8A777063744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF6BE798-B1A4-4BFC-A7BA-A8A777063744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF6BE798-B1A4-4BFC-A7BA-A8A777063744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF6BE798-B1A4-4BFC-A7BA-A8A777063744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E57028-B77B-44D9-9DA9-07FFBD86B213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E57028-B77B-44D9-9DA9-07FFBD86B213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E57028-B77B-44D9-9DA9-07FFBD86B213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E57028-B77B-44D9-9DA9-07FFBD86B213}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

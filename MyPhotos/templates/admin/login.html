@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../script/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSubmit").click(function () {
+                var name = $("#txtName").val();
+                var pwd = $("#txtPwd").val();
+                var vCode=$("#vCode").val();
+                if (name.length==0) {
+                    alert("用户名不能为空");
+                    return false;
+                }
+                if (pwd.length==0) {
+                    alert("密码不为空");
+                    return false;
+                }
+                if (vCode.length==0) {
+                    alert("请输入验证码");
+                    return false;
+                }
+                return  true;
+            })
+        })
+    </script>
+</head>
+<body>
+    <form action="login.ashx" method="post">
+        <input type="hidden" name="_viewstate" value="a" />
+        用户名：<input type="text" name="userName" value="$!data.name" id="txtName" /><br/>
+        密&nbsp;码：<input type="password" name="pwd" id="txtPwd" /><br />
+        验证码：<input  type="text" name="vCode" id="vCode" /><img src="ValidateCode.ashx" title="看不清，请点击" style="cursor:pointer" onclick="this.src = 'ValidateCode.ashx?_=' + Math.random()"><br />
+        <input type="submit" id="btnSubmit" value="submit" /><span style="color:red;">$!data.msg</span>
+    </form>
+</body>
+</html>

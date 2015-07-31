@@ -66,6 +66,7 @@
     <Content Include="06DataPager.aspx" />
     <Content Include="07Request.aspx" />
     <Content Include="08Response.aspx" />
+    <Content Include="09ContentType.aspx" />
     <Content Include="85.gif" />
     <Content Include="86.gif" />
     <Content Include="images\01.jpg" />
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="08Response.aspx.designer.cs">
       <DependentUpon>08Response.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="09ContentType.aspx.cs">
+      <DependentUpon>09ContentType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="09ContentType.aspx.designer.cs">
+      <DependentUpon>09ContentType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">

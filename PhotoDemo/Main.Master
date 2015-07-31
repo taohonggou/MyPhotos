@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PhotoDemo.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/2col.css" type="text/css" />
+    <link rel="stylesheet" href="styles/gallery.css" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+        <div class="wrapper col1">
+            <div id="head">
+                <h1><a href="#">Gallery</a></h1>
+                <p>Free CSS Website Template</p>
+                <div id="topnav">
+                    <ul>
+                        <li><a class="active" href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="page.html">Page</a></li>
+                        <li><a href="#">DropDown</a>
+                            <ul>
+                                <li><a href="#">Link 1</a></li>
+                                <li><a href="#">Link 2</a></li>
+                                <li><a href="#">Link 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="last"><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--  / Head -->
+        <div class="wrapper col2">
+            <div class="container">
+                <!-- ############################################################################################## -->
+                <!-- ############################################################################################## -->
+                <!-- ############################################################################################## -->
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <!-- ############################################################################################## -->
+                <div id="column">
+                    <div class="sponsors">
+                        <h2 class="title">Site Sponsors</h2>
+                        <ul id="banner125">
+                            <li><a href="#">
+                                <img src="images/demo/125.gif" alt="" /></a></li>
+                            <li><a href="#">
+                                <img src="images/demo/125.gif" alt="" /></a></li>
+                            <li><a href="#">
+                                <img src="images/demo/125.gif" alt="" /></a></li>
+                            <li><a href="#">
+                                <img src="images/demo/125.gif" alt="" /></a></li>
+                            <li><a href="#">
+                                <img src="images/demo/125.gif" alt="" /></a></li>
+                            <li><a href="#">
+                                <img src="images/demo/125.gif" alt="" /></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="holder flickrbox">
+                        <h2 class="title">Flickr</h2>
+                        <div class="wrap">
+                            <div class="fix"></div>
+                            <div class="flickr_badge_image" id="flickr_badge_image1">
+                                <a href="#">
+                                    <img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a>
+                            </div>
+                            <div class="flickr_badge_image" id="flickr_badge_image2">
+                                <a href="#">
+                                    <img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a>
+                            </div>
+                            <div class="flickr_badge_image" id="flickr_badge_image3">
+                                <a href="#">
+                                    <img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a>
+                            </div>
+                            <div class="flickr_badge_image" id="flickr_badge_image4">
+                                <a href="#">
+                                    <img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a>
+                            </div>
+                            <div class="flickr_badge_image" id="flickr_badge_image5">
+                                <a href="#">
+                                    <img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a>
+                            </div>
+                            <div class="flickr_badge_image" id="flickr_badge_image6">
+                                <a href="#">
+                                    <img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a>
+                            </div>
+                            <div class="fix"></div>
+                        </div>
+                    </div>
+                    <div class="holder twitterbox">
+                        <h2 class="title">Twitter</h2>
+                        <ul id="twitter_update_list">
+                            <li><span>@<a href="#">name</a> Lacuspretium justo ris adipis mi temper mus ut elis nam cras.</span> <a style="font-size: 85%;" href="#">about 4 hours ago</a></li>
+                            <li><span>@<a href="#">name</a> Pharetraenim orci vel nulla nisl augue vel netus tellus augue nec.</span> <a style="font-size: 85%;" href="#">about 5 hours ago</a></li>
+                            <li><span>@<a href="#">name</a> Eulorem sit congue curabitur sagittis cursuscetus fringilla dui tellus pretium enim.</span> <a style="font-size: 85%;" href="#">about 7 hours ago</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ############################################################################################## -->
+                <!-- ############################################################################################## -->
+                <!-- ############################################################################################## -->
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="wrapper col3">
+            <div id="copyright">
+                <ul>
+                    <li>Copyright &copy; 2011 - All Rights Reserved - <a href="#">Domain Name</a></li>
+                    <li><a target="_blank" rel="nofollow" href="http://validator.w3.org/check?uri=referer">Valid XHTML</a></li>
+                    <li><a target="_blank" rel="nofollow" href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a></li>
+                    <li class="last">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
