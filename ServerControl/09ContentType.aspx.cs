@@ -11,7 +11,10 @@ namespace ServerControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.ContentType = "image/gif";
+            string path = Request.MapPath("~/85.gif");
+            Response.WriteFile(path);
+            Response.End();
         }
     }
 }
