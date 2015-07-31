@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script >
+        window.onload = function () {
+            document.getElementById("submit").onclick = function () {
+                var filePath = document.getElementById("file").value;
+                var fileExe = filePath.substr(filePath.lastIndexOf(".") + 1).toLocaleLowerCase();
+                
+                if (fileExe == "jpeg" || fileExe == "png" || fileExe == "gif" || fileExe == "bmp" || fileExe == "jpg") {
+                    
+                    return true;
+                }
+                alert("格式错误");
+                return false;
+            };
+        };
+    </script>
+</head>
+<body>
+    <form action="upLoad.ashx" method="post" enctype="multipart/form-data">
+        文件名称：<input type="text" name="fileName" id="fileName" /><br />
+        路&nbsp;&nbsp;径：<input  type="file" name="file" id="file" /><br />
+        <input type="submit" value="submit" id="submit" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,189 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="script/jquery-2.1.4.js"></script>
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+
+
+
+        .login{
+            width: 750px;
+            height: 100px;
+            margin: 0 auto;
+            margin-top: 60px;
+
+        }
+
+        .login ul {
+            display: inline-block;
+        }
+
+        .login .red{
+            color: #ff6a00;
+            margin-top: 30px;
+            text-align: center;
+
+            font: 16px 'Microsoft Yahei';
+
+        }
+
+        li{
+            float: left;
+            margin-left: 20px;
+        }
+
+        li span{
+            font: 14px/40px 'Microsoft Yahei';
+            margin-left: 10px;
+            font-weight: bold;
+            color: #6E7A85;
+        }
+
+        input{
+            font: 16px/35px 'Microsoft Yahei';
+        }
+
+        input[type="text"], input[type="password"] {
+            height: 36px;
+            width: 150px;
+
+            border: 1px solid #cacaca;
+            padding-left: 10px;
+
+            background: url(images/15_03.gif) repeat-x;
+
+            color: Gray;
+            /*padding-top: 5px;*/
+        }
+
+        input[type="button"]{
+            background: url(images/15_06.gif);
+            width: 88px;
+            height: 38px;
+
+            border: 0;
+            cursor: pointer;
+
+
+            color: #fff;
+            font-weight: bold;
+        }
+
+
+        .logo {
+
+            /*width: 319px;*/
+            height: 300px;
+            margin: 0 auto;
+            /*margin-top: 70px;*/
+        }
+
+
+
+        .footer{
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            /*font: 14px 'Microsoft Yahei';*/
+        }
+
+        .footer p{
+            color: Gray;
+            /*font-weight: bold;
+            font: 12px 'Microsoft Yahei';*/
+        }
+
+
+        .header {
+
+            width: 100%;
+            background: url(images/JJWW_01.gif);
+            height: 430px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(document).keydown(function (e) {
+            if (e.keyCode==13) {
+                $("#Login").click();
+            }
+        });
+
+        $(function () {
+            $("#img").click(function () {
+                
+                changeCode();
+            });
+
+            $("#Login").click(function () {
+                $("#msg").text("正在登录。。。");
+                //获取用户输入的数据
+                var postData = $("#f").serialize();
+                $.ajax({
+                    type:"post",
+                    url: "handler/Login.ashx",
+                    data: postData,
+                    success: function (msg) {
+                        if (msg==1) {
+                            location.href = "index.html";
+                            return;
+                        }
+                        else if (msg==2) {
+                            $("#msg").text("验证码错误");
+                        } else if (msg==0) {
+                            $("#msg").text("登陆失败");
+                        } else {
+                            $("#msg").text("未知错误");
+                        }
+                        //刷新验证码
+                        changeCode();
+                    },
+                    error: function () {
+                        $("#msg").text("服务器内部错误");
+                    }
+                });
+            });
+
+        });
+        
+
+        function changeCode() {
+            $("#img").attr("src", "ValidateCode.ashx?_"+Math.random());
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+        </div>
+
+    </div>
+
+    <div class="login">
+        <form id="f">
+            <ul>
+                <li><input type="text" id="name" placeholder="请输入用户名" name="name" value="" /></li>
+                <li><input type="text" id="pwd" placeholder="请输入密码" name="pwd" value="" /></li>
+                <li>
+                    <input type="text" id="code" name="code" placeholder="请输入验证码" />
+                    <img style="cursor:pointer;" title="看不清，请点击" id="img" align="absmiddle" src="ValidateCode.ashx" />
+                </li>
+                <li><input type="button" id="Login" value="登录" /></li>
+            </ul>
+        </form>
+        <div class="red" id="msg"></div>
+    </div>
+
+
+
+    <div class="footer">
+        <p>Copyright © 2013 传智播客</p>
+    </div>
+
+</body>
+</html>

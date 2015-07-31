@@ -1,0 +1,143 @@
+/*
+Template Name: Gallery
+File: Gallery CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+#gallery{
+	display:block;
+	float:left;
+	width:660px;
+	padding:0px 0 0 0;
+	}
+
+#gallery h1, #gallery p, #gallery ul, #gallery a{
+	margin:0;
+	padding:0;
+	list-style:none;
+	line-height:normal;
+	}
+
+#gallery a{
+	color:#FF6600;
+	background-color:#EEEEDD;
+	
+	}
+#gallery li img{
+    display:block;
+   
+    }
+#gallery li{
+display:inline;
+	float:left;
+	width:200px;
+	margin:0 20px 20px 0;
+	}
+
+
+#gallery li div.name{
+	display:block;
+	margin-bottom:8px;
+	padding:5px 8px;
+	color:#CCCCCC;
+	background-color:#1A2022;
+	border-top:2px solid #1E2F34;
+}
+
+#gallery li div.screen
+{
+	display:block;
+	width:200px;
+	height:200px;
+	margin:  0 0 8px 0;
+}
+
+#gallery li div.vote{
+	display:block;
+	width:100%;
+	}
+
+#gallery li div.vote li{
+	display:inline;
+	float:left;
+	width:16px;
+	height:16px;
+	margin:0 4px 0 0;
+	padding:0;
+	border:none;
+	}
+
+#gallery li.last{margin-right:0;}
+
+#gallery li .vote .totalvotes{
+	display:block;
+	width:100%;
+	padding:8px 0 0 0;
+	clear:both;
+	}
+
+/* ----------------------------------------------Pagination-------------------------------------*/
+
+#gallery .pagination{
+	display:block;
+	width:100%;
+	margin:10px 0 0 0;
+	padding:0;
+	clear:both;
+	text-align:center;
+	}
+
+#gallery .pagination ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	}
+
+#gallery .pagination li{
+	float:none;
+	margin:0;
+	padding:0;
+	width:auto;
+	height:auto;
+	border:none;
+	line-height:inherit;
+	}
+
+#gallery .pagination a{
+	margin:0 2px 0 0;
+	padding:2px 5px;
+	color:#FFFFFF;
+	background-color:#000000;
+	border:1px solid #000000;
+	}
+
+#gallery .pagination a:hover{
+	color:#FFFFFF;
+	background-color:#AAD83E;
+	border:1px solid #AAD83E;
+	}
+
+#gallery .pagination li.current{
+	margin:0 2px 0 0;
+	padding:2px 5px;
+	background-color:#AAD83E;
+	border:1px solid #AAD83E;
+	}
+
+#gallery .pagination li.divider{
+	margin:0 2px 0 0;
+	padding:2px 5px;
+	color:#6C8085;
+	background-color:#1A2022;
+	border:1px solid #1A2022;
+	}
+
+#gallery .pagination li.firstpage{
+	margin:0 40px 0 0;
+	}
+
+#gallery .pagination li.lastpage{
+	margin:0 0 0 40px;
+	}

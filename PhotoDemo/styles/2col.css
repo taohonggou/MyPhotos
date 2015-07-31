@@ -1,0 +1,40 @@
+/*
+Template Name: Gallery
+File: 2 Column Right CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+#content{
+	display:block;
+	float:left;
+	width:660px;
+	padding:10px 0 0 0;
+	}
+
+#content #screen, #content #info{ margin-bottom:15px; padding-bottom:20px; border-bottom:1px dotted #666666; }
+
+#content #info p{ margin:0; padding:0; }
+
+/* ----------------------------------------------Comments-------------------------------------*/
+
+#content #comments{ margin-bottom:15px; padding-bottom:20px; border-bottom:1px dotted #666666; }
+
+#comments .commentlist {margin:0; padding:0;}
+
+#comments .commentlist ul{margin:0; padding:0; list-style:none;}
+
+#comments .commentlist li.comment_odd, #comments .commentlist li.comment_even{margin:0 0 10px 0; padding:15px; list-style:none;}
+
+#comments .commentlist li.comment_odd{color:#FFFFFF; background-color:#334044;}
+#comments .commentlist li.comment_odd a{color:#FFFF00; background-color:#334044;}
+#comments .commentlist li.comment_even{color:#FFFFFF; background-color:#242D2F;}
+#comments .commentlist li.comment_even a{color:#FFFF00; background-color:#242D2F;}
+
+#comments .commentlist .author .name{font-weight:bold;}
+#comments .commentlist .submitdate{font-size:smaller;}
+
+#comments .commentlist p{margin:10px 5px 10px 0; padding:0; font-weight: normal;text-transform: none;}
+
+#comments .commentlist li .avatar{float:right; border:1px solid #EEEEEE; margin:0 0 0 10px;}
