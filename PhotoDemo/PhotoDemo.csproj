@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="details.aspx" />
     <Content Include="images\01.jpg" />
     <Content Include="images\02.jpg" />
     <Content Include="images\03.jpg" />
@@ -69,6 +70,7 @@
     <Content Include="images\09.jpg" />
     <Content Include="images\10.jpg" />
     <Content Include="images\daolian.jpg" />
+    <Content Include="index.aspx" />
     <Content Include="Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -92,15 +94,27 @@
     <Content Include="styles\2col.css" />
     <Content Include="styles\forms.css" />
     <Content Include="styles\gallery.css" />
-    <Content Include="styles\index.html" />
     <Content Include="styles\layout.css" />
     <Content Include="styles\navi.css" />
     <Content Include="styles\tables.css" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="details.aspx.cs">
+      <DependentUpon>details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="details.aspx.designer.cs">
+      <DependentUpon>details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FDL.cs" />
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,13 +123,16 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyPhotos.BLL\MyPhotos.BLL.csproj">
+      <Project>{c0206d0c-3561-495c-9c8c-276d46c0d9cf}</Project>
+      <Name>MyPhotos.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPhotos.Model\MyPhotos.Model.csproj">
+      <Project>{0eff2d46-9d12-412c-a9e8-12dee64f58d4}</Project>
+      <Name>MyPhotos.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

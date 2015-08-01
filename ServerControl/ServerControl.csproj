@@ -95,6 +95,12 @@
     <Content Include="images\副本 .jpg" />
     <Content Include="jquery-2.1.4.js" />
     <Content Include="master.js" />
+    <Content Include="Server\01htmlencode.aspx" />
+    <Content Include="Server\02urlEncode.aspx" />
+    <Content Include="Server\03Execute.aspx" />
+    <Content Include="Server\03Execute_over.aspx" />
+    <Content Include="Server\04Redirect.aspx" />
+    <Content Include="Server\04Redirect_over.aspx" />
     <Content Include="test\testWeb.aspx" />
     <Content Include="Web.config" />
     <Content Include="rootWeb.aspx" />
@@ -164,6 +170,48 @@
       <DependentUpon>09ContentType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\01htmlencode.aspx.cs">
+      <DependentUpon>01htmlencode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Server\01htmlencode.aspx.designer.cs">
+      <DependentUpon>01htmlencode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Server\02urlEncode.aspx.cs">
+      <DependentUpon>02urlEncode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Server\02urlEncode.aspx.designer.cs">
+      <DependentUpon>02urlEncode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Server\03Execute.aspx.cs">
+      <DependentUpon>03Execute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Server\03Execute.aspx.designer.cs">
+      <DependentUpon>03Execute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Server\03Execute_over.aspx.cs">
+      <DependentUpon>03Execute_over.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Server\03Execute_over.aspx.designer.cs">
+      <DependentUpon>03Execute_over.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Server\04Redirect.aspx.cs">
+      <DependentUpon>04Redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Server\04Redirect.aspx.designer.cs">
+      <DependentUpon>04Redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Server\04Redirect_over.aspx.cs">
+      <DependentUpon>04Redirect_over.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Server\04Redirect_over.aspx.designer.cs">
+      <DependentUpon>04Redirect_over.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

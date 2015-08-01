@@ -5,15 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PhotoDemo
+namespace ServerControl.Server
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class _03Execute_over : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //Response.Write(Request.RawUrl);
-            //Response.Write("<br/>"+ Request.Url.ToString());
+            string wd = Request.QueryString["wd"];
+            Response.Write("<br/>"+wd);
         }
     }
 }
