@@ -37,7 +37,7 @@
         </asp:Repeater>
         
         
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetPhotos" TypeName="MyPhotos.BLL.PhotoBLL"></asp:ObjectDataSource>
+        <asp:ObjectDataSource EnableCaching="true" CacheDuration="10" ID="ObjectDataSource1" runat="server" SelectMethod="GetPhotos" TypeName="MyPhotos.BLL.PhotoBLL"></asp:ObjectDataSource>
     
 </asp:Content>
 

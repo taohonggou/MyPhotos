@@ -43,7 +43,7 @@
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script src="<%= ResolveClientUrl("master.js") %>" ></script>
+    <%--<script src="<%= ResolveClientUrl("master.js") %>" ></script>--%>
 </head>
 <body>
     <form id="form1" runat="server">

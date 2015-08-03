@@ -58,6 +58,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="10cache.aspx" />
+    <Content Include="cache\HtmlPage1.html" />
     <Content Include="details.aspx" />
     <Content Include="images\01.jpg" />
     <Content Include="images\02.jpg" />
@@ -100,6 +102,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="10cache.aspx.cs">
+      <DependentUpon>10cache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="10cache.aspx.designer.cs">
+      <DependentUpon>10cache.aspx</DependentUpon>
+    </Compile>
     <Compile Include="details.aspx.cs">
       <DependentUpon>details.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
