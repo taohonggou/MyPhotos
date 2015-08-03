@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+警告: 请勿修改此文件，它将用于 Web 发布过程。
+
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94ca83e7-5499-468f-bb8a-10468c85b929}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/MyPhotos</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SourceWebProject>http://localhost:61412</SourceWebProject>
+    <SourceWebMetabasePath>/IISExpress/7.5/LM/W3SVC/15/ROOT</SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{43AF8B00-EEB8-4B3F-BCE7-FC1F05CD558B}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPhotos.BLL\MyPhotos.BLL.csproj">
+      <Project>{C0206D0C-3561-495C-9C8C-276D46C0D9CF}</Project>
+      <Name>MyPhotos.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPhotos.DAL\MyPhotos.DAL.csproj">
+      <Project>{ED8CCE55-574D-455E-A044-791DC2253022}</Project>
+      <Name>MyPhotos.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPhotos.Model\MyPhotos.Model.csproj">
+      <Project>{0EFF2D46-9D12-412C-A9E8-12DEE64F58D4}</Project>
+      <Name>MyPhotos.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>

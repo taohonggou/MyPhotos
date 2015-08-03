@@ -15,7 +15,8 @@
         </asp:DropDownList>
     <a href="07Request.aspx">07Request</a>
     </div>
-        <img src="http://localhost:50686/images/10.jpg" />
+        <img src="http://localhost:61412/images/02.jpg" />
+        <img src="http://localhost:61412/images/10.jpg" />
     </form>
 </body>
 </html>

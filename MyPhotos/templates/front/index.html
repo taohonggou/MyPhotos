@@ -8,7 +8,7 @@
                 #foreach($p in $photos.listCount)
                 <li>
                     <div class="name">$p.PTitle</div>
-                    <div class="screen"><a href="details.ashx?id=$p.PId"><img src="thumbnail.ashx?u=$p.PUrl&w=200&h=200" alt="" style=""></a></div>
+                    <div class="screen"><a href="photo-${p.PId}.htm"><img src="thumbnail.ashx?u=$p.PUrl&w=200&h=200" alt="" style=""></a></div>
                     <div class="vote">
                         <ul>
                             <li><a href="#"><img src="images/stars/yellow_star.gif" alt=""></a></li>
