@@ -74,6 +74,8 @@
     <Content Include="images\daolian.jpg" />
     <Content Include="index.aspx" />
     <Content Include="Main.Master" />
+    <Content Include="handler\GetComments.ashx" />
+    <Content Include="handler\SendComment.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -93,6 +95,8 @@
     <Content Include="images\stars\green_star.gif" />
     <Content Include="images\stars\orange_star.gif" />
     <Content Include="images\stars\yellow_star.gif" />
+    <Content Include="script\jquery-2.1.4.js" />
+    <Content Include="script\jsrender.js" />
     <Content Include="styles\2col.css" />
     <Content Include="styles\forms.css" />
     <Content Include="styles\gallery.css" />
@@ -117,6 +121,12 @@
       <DependentUpon>details.aspx</DependentUpon>
     </Compile>
     <Compile Include="FDL.cs" />
+    <Compile Include="handler\GetComments.ashx.cs">
+      <DependentUpon>GetComments.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="handler\SendComment.ashx.cs">
+      <DependentUpon>SendComment.ashx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

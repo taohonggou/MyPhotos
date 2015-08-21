@@ -21,5 +21,25 @@ namespace MyPhotos.BLL
         {
             return comDAL.IsHasComment(CPhotoId);
         }
+
+        /// <summary>
+        /// 根据照片id获取照片的评论  返回评论集合
+        /// </summary>
+        /// <param name="pId"></param>
+        /// <returns></returns>
+        public List<Comments> GetCommentsByPId(int pId)
+        {
+            return comDAL.GetCommentsByPId(pId);
+        }
+
+        /// <summary>
+        /// 给照片添加评论  
+        /// </summary>
+        /// <param name="comment"></param>
+        /// <returns></returns>
+        public int AddComment(Comments comment)
+        {
+            return comDAL.AddComment(comment);
+        }
     }
 }
