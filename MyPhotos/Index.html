@@ -14,7 +14,7 @@
             {{for #data.photos}}
             <li><!--PId, PTypeId, PTitle, PUrl, PDes, PClicks, PTime, PUp, PDown-->
                 <div class="name">{{:PTitle}}</div>
-                <div class="screen"><a href="photo-{{:PId}}.htm"><img src="thumbnail.ashx?u={{:PUrl}}&w=200&h=200" alt="" /></a></div>
+                <div class="screen"><a href="photo-{{:PId}}.htm"><img src="Handler/thumbnail.ashx?u={{:PUrl}}&w=200&h=200" alt="" /></a></div>
                 <div class="vote">
                     <ul>
                         <li><a href="#"><img src="images/stars/yellow_star.gif" alt="" /></a></li>
@@ -37,7 +37,7 @@
 
     <script id="hot" type="text/x-jsrender">
         {{for #data.hotPhotos}}
-        <li><a href="photo-{{:PId}}.htm"><img src="thumbnail.ashx?u={{:PUrl}}&w=125&h=125" alt="" /></a></li>
+        <li><a href="photo-{{:PId}}.htm"><img src="Handler/thumbnail.ashx?u={{:PUrl}}&w=125&h=125" alt="" /></a></li>
         {{/for}}
     </script>
     <script type="text/javascript">
@@ -117,18 +117,10 @@
             <p>Free CSS Website Template</p>
             <div id="topnav">
                 <ul>
-                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a class="active" href="Index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="page.html">Page</a></li>
-                    <li>
-                        <a href="#">DropDown</a>
-                        <ul>
-                            <li><a href="#">Link 1</a></li>
-                            <li><a href="#">Link 2</a></li>
-                            <li><a href="#">Link 3</a></li>
-                        </ul>
-                    </li>
-                    <li class="last"><a href="#">Gallery</a></li>
+                    <li><a href="Page.aspx?id=1">Page</a></li>
+                    
                 </ul>
             </div>
         </div>

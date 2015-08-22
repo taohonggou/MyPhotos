@@ -69,10 +69,10 @@ namespace MyPhotos.DAL
         /// <returns></returns>
         public int AddComment(Comments comment)
         {
-            string sql = "insert into Comments (CPhotoId, CUserName, CText, CTime, CUp, CDown) values (@CPhotoId, @CUserName, @CText, @CTime, @CUp, @CDown)";
+            string sql = "insert into Comments (CPhotoId,CUserName,  CText, CTime, CUp, CDown) values (@CPhotoId, @CUserName, @CText, @CTime, @CUp, @CDown)";
             SqlParameter[] param = {
                 new SqlParameter("@CPhotoId",SqlDbType.Int) { Value=comment.CPhotoId },
-                new SqlParameter ("@CUserName",SqlDbType.NVarChar) {Value=comment.CUserName },
+                new SqlParameter("@CUserName",SqlDbType.NVarChar) { Value=comment.CUserName },
                 new SqlParameter ("@CText",SqlDbType.NVarChar) {Value=comment.CText },
                 new SqlParameter("@CTime",DateTime.Now),
                 new SqlParameter("@CUp",SqlDbType.Int) { Value=0 },

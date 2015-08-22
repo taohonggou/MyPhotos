@@ -69,6 +69,7 @@
             var jsonStr = JSON.stringify(json);
             return jsonStr;
         }
+
         function ChangeDateFormat(cellval) {
             var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
             var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
@@ -91,19 +92,12 @@
         <div id="info">
             <p><%= p.PDes %></p>
         </div>
-
-
-
-
-
         <div id="comments">
             <h2>评论列表</h2>
             <div id="c">
+
             </div>
         </div>
-
-
-
         <h2>Write A Comment</h2>
         <div id="respond">
             <form id="f1" action="#" method="post">

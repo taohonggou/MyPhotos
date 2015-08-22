@@ -33,7 +33,7 @@ public class UrlReWrite:IHttpModule
             {
                 //获取照片的id
                 string pId = m.Groups[1].Value;
-                app.Context.RewritePath("~/details.ashx?id=" + pId);
+                app.Context.RewritePath("~/Page.aspx?id=" + pId);
             }
         }
     }

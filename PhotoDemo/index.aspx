@@ -17,21 +17,7 @@
                             <img src="images/<%# Eval("PUrl") %>" width="200px" height="200px" alt="">
                         </a>
                     </div>
-                    <%--<div class="vote">
-            <ul>
-              <li><a href="#"><img src="images/stars/yellow_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-              <li class="last"><a href="#"><img src="images/stars/green_star.gif" alt=""></a></li>
-            </ul>
-            <div class="totalvotes">1/10 from 1 Votes</div>
-          </div>--%>
+                    
                 </li>
             </ItemTemplate>
             <FooterTemplate>
