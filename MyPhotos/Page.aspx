@@ -114,8 +114,9 @@
             <div id="topnav">
                 <ul>
                     <li><a href="Index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    
                     <li><a class="active" href="Page.aspx?id=1">Page</a></li>
+                    <li><a href="About.html">About</a></li>
 
                 </ul>
             </div>
