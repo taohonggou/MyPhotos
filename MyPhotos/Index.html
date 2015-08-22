@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN" dir="ltr">
+<head profile="http://gmpg.org/xfn/11">
+    <title>Gallery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/2col.css" type="text/css" />
+    <link rel="stylesheet" href="styles/gallery.css" type="text/css" />
+    <script src="script/jquery-2.1.4.js"></script>
+    <script src="script/jsrender.js"></script>
+    <script id="main" type="text/x-jsrender">
+        
+            {{for #data.photos}}
+            <li><!--PId, PTypeId, PTitle, PUrl, PDes, PClicks, PTime, PUp, PDown-->
+                <div class="name">{{:PTitle}}</div>
+                <div class="screen"><a href="photo-{{:PId}}.htm"><img src="thumbnail.ashx?u={{:PUrl}}&w=200&h=200" alt="" /></a></div>
+                <div class="vote">
+                    <ul>
+                        <li><a href="#"><img src="images/stars/yellow_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                        <li class="last"><a href="#"><img src="images/stars/green_star.gif" alt="" /></a></li>
+                    </ul>
+                    <div class="totalvotes">1/10 from 1 Votes</div>
+                </div>
+            </li>
+            {{/for}}
+        
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            
+            //加载图片
+            loadPhotos();
+        });
+        var pageIndex = 1;
+        function loadPhotos() {
+            
+            $.getJSON("Handler/Index.ashx?pageIndex=" + pageIndex + "&_" + Math.random(), function (json) {
+                if(json==null)
+                {
+                    alert("json==null");
+                    alert("加载图片失败");
+                    return;
+                }
+                
+                //获取图片集合
+                var array = json.listPhotos;
+                
+                var html = $("#main").render({ "photos": array });
+                
+                $("#photos").html(html);
+                
+            })
+        }
+    </script>
+</head>
+<body id="top">
+    <div class="wrapper col1">
+        <div id="head">
+            <h1><a href="#">Gallery</a></h1>
+            <p>Free CSS Website Template</p>
+            <div id="topnav">
+                <ul>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="page.html">Page</a></li>
+                    <li>
+                        <a href="#">DropDown</a>
+                        <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="last"><a href="#">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--  / Head -->
+
+    <div class="wrapper col2">
+        <div class="container">
+           
+            <div id="gallery">
+                <ul id="photos">
+                   
+                </ul>
+                <div class="pagination">
+                    <ul>
+                        <li class="firstpage"><a href="#">First</a></li>
+                        <li><a href="#">&laquo; Previous</a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="current">2</li>
+                        <li><a href="#">3</a></li>
+                        <li class="divider">&hellip;</li>
+                        <li><a href="#">18</a></li>
+                        <li><a href="#">19</a></li>
+                        <li><a href="#">20</a></li>
+                        <li><a href="#">Next &raquo;</a></li>
+                        <li class="lastpage"><a href="#">Last</a></li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div id="column">
+                <div class="sponsors">
+                    <h2 class="title">Site Sponsors</h2>
+                    <ul id="banner125">
+                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
+                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="holder flickrbox">
+                    <h2 class="title">Flickr</h2>
+                    <div class="wrap">
+                        <div class="fix"></div>
+                        <div class="flickr_badge_image" id="flickr_badge_image1"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                        <div class="flickr_badge_image" id="flickr_badge_image2"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                        <div class="flickr_badge_image" id="flickr_badge_image3"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                        <div class="flickr_badge_image" id="flickr_badge_image4"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                        <div class="flickr_badge_image" id="flickr_badge_image5"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                        <div class="flickr_badge_image" id="flickr_badge_image6"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                        <div class="fix"></div>
+                    </div>
+                </div>
+                <div class="holder twitterbox">
+                    <h2 class="title">Twitter</h2>
+                    <ul id="twitter_update_list">
+                        <li><span>@<a href="#">name</a> Lacuspretium justo ris adipis mi temper mus ut elis nam cras.</span> <a style="font-size: 85%;" href="#">about 4 hours ago</a></li>
+                        <li><span>@<a href="#">name</a> Pharetraenim orci vel nulla nisl augue vel netus tellus augue nec.</span> <a style="font-size: 85%;" href="#">about 5 hours ago</a></li>
+                        <li><span>@<a href="#">name</a> Eulorem sit congue curabitur sagittis cursuscetus fringilla dui tellus pretium enim.</span> <a style="font-size: 85%;" href="#">about 7 hours ago</a></li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="wrapper col3">
+        <div id="copyright">
+            <ul>
+                <li>Copyright &copy; 2011 - All Rights Reserved - <a href="#">Domain Name</a></li>
+                <li><a target="_blank" rel="nofollow" href="http://validator.w3.org/check?uri=referer">Valid XHTML</a></li>
+                <li><a target="_blank" rel="nofollow" href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a></li>
+                <li class="last">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -148,6 +148,7 @@
             var jsonStr = JSON.stringify(json);
             return jsonStr;
         }
+
         var pageIndex = 1;
         //加载图片 操作图片
         function loadPhotos() {
@@ -163,7 +164,7 @@
                 var html = $("#tmpl").render({ "photos": array }, { cvt: ChangeDateFormat });
                 $("#photos").html(html);
 
-                //要在加载出表格之后在进行删除时间的注册
+                //要在加载出表格之后在进行删除事件的注册
                 del();
                 edit();
 
@@ -286,6 +287,7 @@
         <br />
         <br />
         <table id="photos" cellspacing="0px"></table>
+
         <a id="first" href="javascript:void(0);">首页</a>
         <a id="pre" href="javascript:void(0);">上一页</a>
         <span id="now"></span>

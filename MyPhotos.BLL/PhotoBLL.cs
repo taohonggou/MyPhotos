@@ -22,9 +22,9 @@ namespace MyPhotos.BLL
         }
 
         /// <summary>
-        /// 根据用户传入的数量，放回此数量的Photos集合
+        /// 根据pUp数返回最火的图片
         /// </summary>
-        /// <param name="count">数量</param>
+        /// <param name="count">最火图片数量</param>
         /// <returns>Photos集合</returns>
         public List<Photos> GetToPHotPhotos(int count)
         {

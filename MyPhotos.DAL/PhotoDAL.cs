@@ -50,9 +50,9 @@ namespace MyPhotos.DAL
         }
 
         /// <summary>
-        /// 根据用户传入的数量，放回此数量的Photos集合
+        /// 获得最火图片  根据pUp数  
         /// </summary>
-        /// <param name="count">数量</param>
+        /// <param name="count">前多少张</param>
         /// <returns>Photos集合</returns>
         public List<Photos> GetToPHotPhotos(int count)
         {
