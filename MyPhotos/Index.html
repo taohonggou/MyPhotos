@@ -54,11 +54,43 @@
                 
                 //获取图片集合
                 var array = json.listPhotos;
-                
                 var html = $("#main").render({ "photos": array });
-                
                 $("#photos").html(html);
-                
+                //每次加载完后将页码的事件清除
+                $("#first").unbind();
+                $("#pre").unbind();
+                $("#next").unbind();
+                $("#last").unbind();
+                var pageCount = json.pageCount;
+                //注册事件
+                $("#first").one("click", function () {
+                    if (pageIndex > 1) {
+                        pageIndex = 1;
+                        loadPhotos();
+                    }
+                });
+                $("#last").one("click", function () {
+                    if (pageIndex < pageCount) {
+                        pageIndex = pageCount;
+                        loadPhotos();
+                    }
+                });
+                //上一页
+                $("#pre").one("click", function () {
+                    if (pageIndex > 1) {
+                        pageIndex--;
+                        loadPhotos();
+                    }
+                })
+                //下一页
+                $("#next").one("click", function () {
+                    if (pageIndex < pageCount) {
+                        pageIndex++;
+                        loadPhotos();
+                    }
+                })
+                $("#pageSpan").text(pageIndex + "/" + pageCount);
+                $("#now").text(pageIndex);
             })
         }
     </script>
@@ -97,17 +129,14 @@
                 </ul>
                 <div class="pagination">
                     <ul>
-                        <li class="firstpage"><a href="#">First</a></li>
-                        <li><a href="#">&laquo; Previous</a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="current">2</li>
-                        <li><a href="#">3</a></li>
-                        <li class="divider">&hellip;</li>
-                        <li><a href="#">18</a></li>
-                        <li><a href="#">19</a></li>
-                        <li><a href="#">20</a></li>
-                        <li><a href="#">Next &raquo;</a></li>
-                        <li class="lastpage"><a href="#">Last</a></li>
+                        <li class="firstpage"><a id="first" href="javascript:void(0);">First</a></li>
+                        <li><a id="pre" href="javascript:void(0);">Previous</a></li>
+                        
+                        <li id="now" class="current">1</li>
+                        
+                        <li><a href="javascript:void(0);" id="next">Next </a></li>
+                        <li class="lastpage"><a href="javascript:void(0);" id="last">Last</a></li>
+                        <li id="pageSpan"></li>
                     </ul>
                 </div>
             </div>
