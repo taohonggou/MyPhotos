@@ -109,8 +109,8 @@
 <body id="top">
     <div class="wrapper col1">
         <div id="head">
-            <h1><a href="#">Gallery</a></h1>
-            <p>Free CSS Website Template</p>
+            <h1><a href="Index.html">Gallery</a></h1>
+            <p></p>
             <div id="topnav">
                 <ul>
                     <li><a href="Index.html">Home</a></li>
@@ -145,10 +145,6 @@
                             <input type="text" name="CuserName" id="name" value="" size="22" />
                             <label for="name"><small>用户名</small></label>
                         </p>
-                        <%--<p>
-                            <input type="text" name="email" id="email" value="" size="22" />
-                            <label for="email"><small>Mail (required)</small></label>
-                        </p>--%>
                         <p>
                             <textarea name="CText" id="message" cols="100%" rows="10"></textarea>
                             <label for="message" style="display: none;"><small>Message</small></label>
