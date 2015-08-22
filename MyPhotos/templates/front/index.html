@@ -2,14 +2,13 @@
 
 <div class="wrapper col2">
     <div class="container">
-        
+
         <div id="gallery">
             <ul>
                 #foreach($p in $photos.listCount)
                 <li>
                     <div class="name">$p.PTitle</div>
                     <div class="screen"><a href="photo-${p.PId}.htm"><img src="thumbnail.ashx?u=$p.PUrl&w=200&h=200" alt="" style=""></a></div>
-                    <!--星星-->
                     <div class="vote">
                         <ul>
                             <li><a href="#"><img src="images/stars/yellow_star.gif" alt=""></a></li>
@@ -26,7 +25,7 @@
                         <div class="totalvotes">1/10 from 1 Votes</div>
                     </div>
                 </li>
-               #end
+                #end
             </ul>
 
             <div class="pagination">
@@ -45,9 +44,41 @@
                 </ul>
             </div>
         </div>
-        
-       
-        
+
+        <div id="column">
+            <div class="sponsors">
+                <h2 class="title">最火图片</h2>
+                <ul id="banner125">
+                    #foreach($p in $photos.listTop)
+                    <li><a href="#"><img src="thumbnail.ashx?u=$p.PUrl&w=125&h=125" alt="" /></a></li>
+                    <!--style="width:125px;height:125px"-->
+                    #end
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="holder flickrbox">
+                <h2 class="title">Flickr</h2>
+                <div class="wrap">
+                    <div class="fix"></div>
+                    <div class="flickr_badge_image" id="flickr_badge_image1"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                    <div class="flickr_badge_image" id="flickr_badge_image2"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                    <div class="flickr_badge_image" id="flickr_badge_image3"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                    <div class="flickr_badge_image" id="flickr_badge_image4"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                    <div class="flickr_badge_image" id="flickr_badge_image5"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                    <div class="flickr_badge_image" id="flickr_badge_image6"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
+                    <div class="fix"></div>
+                </div>
+            </div>
+            <div class="holder twitterbox">
+                <h2 class="title">Twitter</h2>
+                <ul id="twitter_update_list">
+                    <li><span>@<a href="#">name</a> Lacuspretium justo ris adipis mi temper mus ut elis nam cras.</span> <a style="font-size: 85%;" href="#">about 4 hours ago</a></li>
+                    <li><span>@<a href="#">name</a> Pharetraenim orci vel nulla nisl augue vel netus tellus augue nec.</span> <a style="font-size: 85%;" href="#">about 5 hours ago</a></li>
+                    <li><span>@<a href="#">name</a> Eulorem sit congue curabitur sagittis cursuscetus fringilla dui tellus pretium enim.</span> <a style="font-size: 85%;" href="#">about 7 hours ago</a></li>
+                </ul>
+            </div>
+        </div>
+
         #parse("front/center-right.html")
         <div class="clear"></div>
     </div>
