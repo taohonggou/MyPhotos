@@ -35,11 +35,17 @@
         
     </script>
 
+    <script id="hot" type="text/x-jsrender">
+        {{for #data.hotPhotos}}
+        <li><a href="photo-{{:PId}}.htm"><img src="thumbnail.ashx?u={{:PUrl}}&w=125&h=125" alt="" /></a></li>
+        {{/for}}
+    </script>
     <script type="text/javascript">
         $(function () {
-            
             //加载图片
             loadPhotos();
+            //加载最热图片
+            loadHotPhotos()
         });
         var pageIndex = 1;
         function loadPhotos() {
@@ -93,6 +99,15 @@
                 $("#now").text(pageIndex);
             })
         }
+
+        function loadHotPhotos() {
+            $.getJSON("Handler/GetHotPhotos.ashx?_" + Math.random(), function (json) {
+                
+                var html = $("#hot").render({ "hotPhotos": json });
+                $("#banner125").html(html);
+            })
+        }
+
     </script>
 </head>
 <body id="top">
@@ -143,38 +158,15 @@
            
             <div id="column">
                 <div class="sponsors">
-                    <h2 class="title">Site Sponsors</h2>
+                    <h2 class="title">最热图片</h2>
                     <ul id="banner125">
-                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
-                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
-                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
-                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
-                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
-                        <li><a href="#"><img src="images/demo/125.gif" alt="" /></a></li>
+                        
+                        
+                       
                     </ul>
                     <div class="clear"></div>
                 </div>
-                <div class="holder flickrbox">
-                    <h2 class="title">Flickr</h2>
-                    <div class="wrap">
-                        <div class="fix"></div>
-                        <div class="flickr_badge_image" id="flickr_badge_image1"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
-                        <div class="flickr_badge_image" id="flickr_badge_image2"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
-                        <div class="flickr_badge_image" id="flickr_badge_image3"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
-                        <div class="flickr_badge_image" id="flickr_badge_image4"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
-                        <div class="flickr_badge_image" id="flickr_badge_image5"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
-                        <div class="flickr_badge_image" id="flickr_badge_image6"><a href="#"><img src="images/demo/80x80.gif" alt="" height="80" width="80" /></a></div>
-                        <div class="fix"></div>
-                    </div>
-                </div>
-                <div class="holder twitterbox">
-                    <h2 class="title">Twitter</h2>
-                    <ul id="twitter_update_list">
-                        <li><span>@<a href="#">name</a> Lacuspretium justo ris adipis mi temper mus ut elis nam cras.</span> <a style="font-size: 85%;" href="#">about 4 hours ago</a></li>
-                        <li><span>@<a href="#">name</a> Pharetraenim orci vel nulla nisl augue vel netus tellus augue nec.</span> <a style="font-size: 85%;" href="#">about 5 hours ago</a></li>
-                        <li><span>@<a href="#">name</a> Eulorem sit congue curabitur sagittis cursuscetus fringilla dui tellus pretium enim.</span> <a style="font-size: 85%;" href="#">about 7 hours ago</a></li>
-                    </ul>
-                </div>
+               
             </div>
            
             <div class="clear"></div>
