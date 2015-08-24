@@ -4,77 +4,64 @@
 <head>
     <title></title>
     <script src="script/jquery-2.1.4.js"></script>
-    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/reset.css" rel="stylesheet" />
     <style type="text/css">
-
-
-
-        .login{
+        .login {
             width: 750px;
             height: 100px;
             margin: 0 auto;
             margin-top: 60px;
-
         }
 
-        .login ul {
-            display: inline-block;
-        }
+            .login ul {
+                display: inline-block;
+            }
 
-        .login .red{
-            color: #ff6a00;
-            margin-top: 30px;
-            text-align: center;
+            .login .red {
+                color: #ff6a00;
+                margin-top: 30px;
+                text-align: center;
+                font: 16px 'Microsoft Yahei';
+            }
 
-            font: 16px 'Microsoft Yahei';
-
-        }
-
-        li{
+        li {
             float: left;
             margin-left: 20px;
         }
 
-        li span{
-            font: 14px/40px 'Microsoft Yahei';
-            margin-left: 10px;
-            font-weight: bold;
-            color: #6E7A85;
-        }
+            li span {
+                font: 14px/40px 'Microsoft Yahei';
+                margin-left: 10px;
+                font-weight: bold;
+                color: #6E7A85;
+            }
 
-        input{
+        input {
             font: 16px/35px 'Microsoft Yahei';
         }
 
-        input[type="text"], input[type="password"] {
-            height: 36px;
-            width: 150px;
+            input[type="text"], input[type="password"] {
+                height: 36px;
+                width: 150px;
+                border: 1px solid #cacaca;
+                padding-left: 10px;
+                background: url(images/15_03.gif) repeat-x;
+                color: Gray;
+                /*padding-top: 5px;*/
+            }
 
-            border: 1px solid #cacaca;
-            padding-left: 10px;
-
-            background: url(images/15_03.gif) repeat-x;
-
-            color: Gray;
-            /*padding-top: 5px;*/
-        }
-
-        input[type="button"]{
-            background: url(images/15_06.gif);
-            width: 88px;
-            height: 38px;
-
-            border: 0;
-            cursor: pointer;
-
-
-            color: #fff;
-            font-weight: bold;
-        }
+            input[type="button"] {
+                background: url(images/15_06.gif);
+                width: 88px;
+                height: 38px;
+                border: 0;
+                cursor: pointer;
+                color: #fff;
+                font-weight: bold;
+            }
 
 
         .logo {
-
             /*width: 319px;*/
             height: 300px;
             margin: 0 auto;
@@ -83,28 +70,27 @@
 
 
 
-        .footer{
+        .footer {
             width: 1000px;
             margin: 0 auto;
             text-align: center;
             /*font: 14px 'Microsoft Yahei';*/
         }
 
-        .footer p{
-            color: Gray;
-            /*font-weight: bold;
-            font: 12px 'Microsoft Yahei';*/
-        }
+            .footer p {
+                color: Gray;
+                /*font-weight: bold;
+           font: 12px 'Microsoft Yahei';*/
+            }
 
 
         .header {
-
             width: 100%;
             background: url(images/JJWW_01.gif);
             height: 430px;
         }
-
     </style>
+    <script src="../script/jquery-2.1.4.js"></script>
     <script type="text/javascript">
         $(document).keydown(function (e) {
             if (e.keyCode==13) {
@@ -114,7 +100,6 @@
 
         $(function () {
             $("#img").click(function () {
-                
                 changeCode();
             });
 
@@ -124,7 +109,7 @@
                 var postData = $("#f").serialize();
                 $.ajax({
                     type:"post",
-                    url: "handler/Login.ashx",
+                    url: "Handler/Login.ashx",
                     data: postData,
                     success: function (msg) {
                         if (msg==1) {
@@ -148,16 +133,21 @@
             });
 
         });
+        
 
         function changeCode() {
-            $("#img").attr("src", "ValidateCode.ashx?_"+Math.random());
+            $("#img").attr("src", "Handler/ValidateCode.ashx?_"+Math.random());
         }
+        
+
     </script>
 </head>
 <body>
     <div class="header">
         <div class="logo">
+
         </div>
+
     </div>
 
     <div class="login">
@@ -167,7 +157,7 @@
                 <li><input type="text" id="pwd" placeholder="请输入密码" name="pwd" value="" /></li>
                 <li>
                     <input type="text" id="code" name="code" placeholder="请输入验证码" />
-                    <img style="cursor:pointer;" title="看不清，请点击" id="img" align="absmiddle" src="ValidateCode.ashx" />
+                    <img style="cursor:pointer;" title="看不清，请点击" id="img" align="absmiddle" src="Handler/ValidateCode.ashx" />
                 </li>
                 <li><input type="button" id="Login" value="登录" /></li>
             </ul>

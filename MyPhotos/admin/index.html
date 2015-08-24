@@ -18,11 +18,12 @@
                 height: 50px;
             }
     </style>
-    <script src="script/jquery-2.1.4.js"></script>
-    <link href="css/jquery.fancybox.css" rel="stylesheet" />
-    <script src="script/jquery.fancybox.js"></script>
+
+    <script src="../script/jquery-2.1.4.js"></script>
     <!--这是第三方插件-->
-    <script src="script/jsrender.js"></script>
+    <link href="../styles/jquery.fancybox.css" rel="stylesheet" />
+    <script src="../script/jquery.fancybox.js"></script>
+    <script src="../script/jsrender.js"></script>
     <script type="text/x-jsrender" id="header">
         <tr>
             <th>序号</th>
@@ -82,18 +83,10 @@
 
         //加载相册  初始化下拉框
         function loadPhotoType() {
-            $.getJSON("handler/GetAllPhotoType.ashx?_" + Math.random(), function (array) {
+            $.getJSON("Handler/GetAllPhotoType.ashx?_" + Math.random(), function (array) {
                 var html = $("#ddlTmpl").render(array);
                 $("#ddlType").html(html);
             })
-
-            //$.get("handler/GetAllPhotoType.ashx?_" + Math.random(), function (array) {
-            //    var array = msg;
-            //    alert(array.length);
-            //    for (var i = 0; i < array.length; i++) {
-            //        $("<option value='" + array[i].TypeId + "'>" + array[i].TypeName + "</option>").appendTo($("#ddlType"));
-            //    }
-            //})
         }
 
         //给页面上的按钮注册事件
@@ -125,7 +118,7 @@
             $("#btnSure").click(function () {
                 //要post过去的json形式字符串
                 var jsonStr = getJsonStr("f1");
-                $.post("handler/Edit.ashx?action="+action, { "json": jsonStr }, function (msg) {
+                $.post("Handler/Edit.ashx?action="+action, { "json": jsonStr }, function (msg) {
                     if (msg == 1) {//成功
                        alert("操作成功");
                         
@@ -154,7 +147,7 @@
         var pageIndex = 1;
         //加载图片 操作图片
         function loadPhotos() {
-            $.getJSON("handler/GetAllPhotos.ashx?pageIndex=" + pageIndex + "&_" + Math.random(), function (json) {
+            $.getJSON("Handler/GetAllPhotos.ashx?pageIndex=" + pageIndex + "&_" + Math.random(), function (json) {
                 var status = json.status;
                 if (status == 0) {
                     alert("请先登录");
@@ -232,7 +225,7 @@
                 //打开弹出层
                 $.fancybox.open($("#panel"));
                 //从服务器获取数据
-                $.getJSON("handler/GetPhotoById.ashx", { id: id }, function (json) {
+                $.getJSON("Handler/GetPhotoById.ashx", { id: id }, function (json) {
                     setData("f1", json);
                 })
             });
@@ -257,7 +250,7 @@
             $(".del").click(function () {
                 //获得id
                 var id = $(this).attr("data-id");
-                $.get("handler/Edit.ashx", { id: id, action: "delete" }, function (msg) {
+                $.get("Handler/Edit.ashx", { id: id, action: "delete" }, function (msg) {
                     //1成功  2失败  3有评论
                     if (msg == 1) {
                         //alert("删除成功");

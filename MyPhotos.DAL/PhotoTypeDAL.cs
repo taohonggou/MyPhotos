@@ -43,5 +43,35 @@ namespace MyPhotos.DAL
             }
             return list;
         }
+
+        /// <summary>
+        /// 添加相册
+        /// </summary>
+        /// <param name="pType"></param>
+        /// <returns></returns>
+        public int AddPhotoType(PhotoType pType)
+        {
+            string sql = "insert into PhotoType (TypeName,TypeDes) values (@TypeName,@TypeDes)";
+            SqlParameter[] param = {
+                new SqlParameter("@TypeName",SqlDbType.NVarChar) {Value=pType.TypeName },
+                new SqlParameter("@TypeDes",SqlDbType.NVarChar) {Value=pType.TypeDes }
+            };
+           return  SQLHelper.ExecuteNonQuery(sql, CommandType.Text, param);
+        }
+
+        /// <summary>
+        /// 更新相册
+        /// </summary>
+        /// <param name="pType"></param>
+        /// <returns></returns>
+        public int UpdatePhotoType(PhotoType pType)
+        {
+            string sql = "update PhotoType set TypeName=@TypeNam, TypeDes=@TypeDes where TypeId="+pType.TypeId;
+            SqlParameter[] param = {
+                new SqlParameter("@TypeName",SqlDbType.NVarChar) {Value=pType.TypeName },
+                new SqlParameter("@TypeDes",SqlDbType.NVarChar) {Value=pType.TypeDes }
+            };
+            return SQLHelper.ExecuteNonQuery(sql, CommandType.Text, param);
+        }
     }
 }

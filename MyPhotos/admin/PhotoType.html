@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>相册管理</title>
+	<meta charset="utf-8" />
+    <style>
+        #photoType {
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+
+            #photoType td, #photoType th {
+                border: 1px solid red;
+            }
+
+            #photoType th {
+                background-color: gray;
+                height: 50px;
+            }
+    </style>
+
+    <script src="../script/jquery-2.1.4.js"></script>
+    <!--这是第三方插件-->
+    <link href="../styles/jquery.fancybox.css" rel="stylesheet" />
+    <script src="../script/jquery.fancybox.js"></script>
+    <script src="../script/jsrender.js"></script>
+
+    <script type="text/x-jsrender" id="header">
+        <tr>
+            <th>序号</th>
+            <th>名称</th>
+            <th>描述</th>
+            <th>操作</th>
+        </tr>
+    </script>
+
+    <script id="tmpl" type="text/x-jsrender">
+        {{include tmpl="#header"/}}
+
+        {{for #data.array}}
+        <tr>
+            <td>{{:#index + 1}}</td>
+            <td>{{:TypeName}}</td>
+            
+            <td>{{:TypeDes}}</td>
+           
+            <td><a class="edit" data-id="{{:TypeId}}" href="javascript:void(0)">编辑</a> <a data-id="{{:TypeId}}" class="del" href="javascript:void(0)">删除</a> <a href="#panel" id="btnPanel">添加</a></td>
+        </tr>
+        {{/for}}
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            //添加action属性   add添加   edit编辑   cancel什么也不做
+            action = "cancel";
+            //显示加载小圈圈
+            $(document).ajaxStart(function () {
+                $.fancybox.showLoading();
+            })
+            $(document).ajaxStop(function () {
+                $.fancybox.hideLoading();
+            })
+
+            //loadPhotos();
+
+            loadPhotoType();
+
+           // init();
+        });
+
+        //加载相册  初始化下拉框
+        function loadPhotoType() {
+            $.getJSON("Handler/GetAllPhotoType.ashx?_" + Math.random(), function (array) {
+                var html = $("#tmpl").render({ array: array });
+                $("#photoType").html(html);
+            })
+        }
+
+        //给页面上的按钮注册事件
+        function init() {
+            //给添加注册事件
+            $("#btnPanel").click(function () {
+                //记录添加操作
+                action = "add";
+            })
+
+            $("#btnPanel").fancybox({
+                openEffect: 'elastic', // 'elastic', 'fade' or 'none'
+                openSpeed: 150,
+
+                closeEffect: 'elastic',
+                closeSpeed: 150,
+
+                closeBtn: false,
+            });
+
+            //给取消按钮注册事件
+            $("#btnCancel").click(function () {
+                $.fancybox.close();
+                //清空文本框值
+                $("#f1 input[type=text]").val("");
+            });
+
+            //给确认按钮注册事件
+            $("#btnSure").click(function () {
+                //要post过去的json形式字符串
+                var jsonStr = getJsonStr("f1");
+                $.post("Handler/Edit.ashx?action="+action, { "json": jsonStr }, function (msg) {
+                    if (msg == 1) {//成功
+                       alert("操作成功");
+
+                        $("#btnCancel").click();//清空文本框的值
+                        loadPhotos();
+                    } else {
+                        //失败
+                        alert("操作失败");
+                    }
+                })
+            });
+        }
+
+        //将form中的具有name属性的表单元素，最终构建成json形式的字符串
+        function getJsonStr(formId) {
+            var array = $("#" + formId).serializeArray();
+            var json = {};
+            for (var i = 0; i < array.length; i++) {
+                var j = array[i];
+                json[j.name] = j.value;
+            }
+            var jsonStr = JSON.stringify(json);
+            return jsonStr;
+        }
+
+       
+
+       
+
+        //给编辑按钮注册事件
+        function edit() {
+            $(".edit").click(function () {
+                //记录修改操作
+                action = "edit";
+
+                var id = $(this).attr("data-id");
+                //打开弹出层
+                $.fancybox.open($("#panel"));
+                //从服务器获取数据
+                //$.getJSON("Handler/GetPhotoById.ashx", { id: id }, function (json) {
+                    //setData("f1", json);
+                //})
+            });
+        }
+
+        //给层的标签赋值
+        function setData(formId,json) {
+            var formEles = $("#" + formId + " input[name],#" + formId + " select[name]");
+            for (var key in json) {
+                for (var i = 0; i < formEles.length; i++) {
+                    if (formEles[i].name == key) {
+                        $(formEles[i]).val(json[key]);
+                        break;
+                    }
+                }
+            }
+        }
+
+        //删除图片方法
+        function del() {
+            //注册事件
+            $(".del").click(function () {
+                //获得id
+                var id = $(this).attr("data-id");
+                $.get("Handler/Edit.ashx", { id: id, action: "delete" }, function (msg) {
+                    //1成功  2失败  3有评论
+                    if (msg == 1) {
+                        //alert("删除成功");
+                        loadPhotos();//重新加载表格
+                    } else if (msg == 2) {
+                        alert("删除失败");
+                    }
+                    else if (msg == 3) {
+                        alert("有评论");
+                    } else {
+                        alert("未知错误");
+                    }
+                })
+                return;
+            });
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h2>管理员页面</h2>
+        <br />
+        <a href="#">图片管理</a> |
+        <a href="#">相册管理</a> |
+        <a href="#">用户管理</a> |
+        <a href="#">留言管理</a> |
+        <a href="exit.ashx">退出</a>
+        
+        <br />
+        <br />
+        <table id="photoType" cellspacing="0px">
+
+        </table>
+
+    </center>
+    <!--添加的层-->
+    <div id="panel" style="width:300px;display:none;">
+        <form id="f1">
+            <input type="hidden" id="hdPid" name="PId" value="-1" /><!--这个给隐藏域设定一个初始值 防止在添加是id值为空出错-->
+            相册：<select id="ddlType" name="PTypeId"></select><br />
+            标题：<input type="text" id="txtTitle" name="PTitle" /><br />
+            路径：<input type="text" id="txtUrl" name="PUrl" /><br />
+            描述：<input type="text" id="txtDes" name="PDes" /><br />
+            <input type="button" id="btnSure" value="确定" />&nbsp;<input id="btnCancel" type="button" value="取消" />
+        </form>
+    </div>
+</body>
+</html>

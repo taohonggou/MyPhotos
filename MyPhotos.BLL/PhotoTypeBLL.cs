@@ -20,5 +20,25 @@ namespace MyPhotos.BLL
         {
             return pTDAL.GetPhotoType();
         }
+
+        /// <summary>
+        /// 添加相册
+        /// </summary>
+        /// <param name="pType"></param>
+        /// <returns></returns>
+        public bool AddPhotoType(PhotoType pType)
+        {
+            return pTDAL.AddPhotoType(pType) > 0 ? true : false;
+        }
+
+        /// <summary>
+        /// 更新相册
+        /// </summary>
+        /// <param name="pType"></param>
+        /// <returns></returns>
+        public bool UpdatePhotoType(PhotoType pType)
+        {
+            return pTDAL.UpdatePhotoType(pType) > 0 ? true : false;
+        }
     }
 }

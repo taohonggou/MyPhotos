@@ -14,7 +14,7 @@ public class down : IHttpHandler,IReadOnlySessionState {
         User u= context.Session["userName"] as User;
         if (u==null)
         {
-            WebCommon.ReturnMstAndRedirect("请先登录", "login.ashs");
+            WebCommon.ReturnMstAndRedirect("请先登录", "login.ashx");
         }
         string url = context.Request.QueryString["u"];
        

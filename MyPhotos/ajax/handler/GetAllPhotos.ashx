@@ -30,7 +30,7 @@ public class GetAllPhotos : IHttpHandler,IReadOnlySessionState {
         int pageSize = 10;
         list = pB.GetPagePhotos(pageSize, pageIndex, out pageCount);
         JavaScriptSerializer jss = new JavaScriptSerializer();
-        //string jsonStr = jss.Serialize(list);
+        
         var data = new { status=status,photos=list,pageCount=pageCount};//匿名类
             
         context.Response.Write(jss.Serialize(data));
