@@ -66,12 +66,25 @@ namespace MyPhotos.DAL
         /// <returns></returns>
         public int UpdatePhotoType(PhotoType pType)
         {
-            string sql = "update PhotoType set TypeName=@TypeNam, TypeDes=@TypeDes where TypeId="+pType.TypeId;
-            SqlParameter[] param = {
-                new SqlParameter("@TypeName",SqlDbType.NVarChar) {Value=pType.TypeName },
-                new SqlParameter("@TypeDes",SqlDbType.NVarChar) {Value=pType.TypeDes }
-            };
-            return SQLHelper.ExecuteNonQuery(sql, CommandType.Text, param);
+            string sql = "update PhotoType set TypeName='"+ pType.TypeName + "', TypeDes='"+ pType.TypeDes + "' where TypeId="+pType.TypeId;
+            //SqlParameter[] param = {
+            //    new SqlParameter("@TypeName",SqlDbType.NVarChar){Value=pType.TypeName },
+            //    new SqlParameter("@TypeDes",SqlDbType.NVarChar){Value=pType.TypeDes }
+            //};
+            return SQLHelper.ExecuteNonQuery(sql);
+        }
+
+        /// <summary>
+        /// 根据id获取相册信息  返回相册对象
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public PhotoType GetPTypeById(int id)
+        {
+            string sql = "select * from PhotoType where TypeId="+id;
+            DataTable dt = SQLHelper.ExecuteDataTable(sql);
+            List<PhotoType> list = DTToList(dt);
+            return list[0];
         }
     }
 }

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>照片管理</title>
     <style>
         #photos {
             border: 1px solid red;
@@ -24,6 +24,7 @@
     <link href="../styles/jquery.fancybox.css" rel="stylesheet" />
     <script src="../script/jquery.fancybox.js"></script>
     <script src="../script/jsrender.js"></script>
+
     <script type="text/x-jsrender" id="header">
         <tr>
             <th>序号</th>
@@ -228,6 +229,7 @@
                 $.getJSON("Handler/GetPhotoById.ashx", { id: id }, function (json) {
                     setData("f1", json);
                 })
+
             });
         }
 
@@ -273,8 +275,8 @@
     <center>
         <h2>管理员页面</h2>
         <br />
-        <a href="#">图片管理</a> |
-        <a href="#">相册管理</a> |
+        <a href="index.html">图片管理</a> |
+        <a href="PhotoType.html">相册管理</a> |
         <a href="#">用户管理</a> |
         <a href="#">留言管理</a> |
         <a href="exit.ashx">退出</a>|

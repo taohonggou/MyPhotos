@@ -40,5 +40,15 @@ namespace MyPhotos.BLL
         {
             return pTDAL.UpdatePhotoType(pType) > 0 ? true : false;
         }
+
+        /// <summary>
+        /// 根据id获取相册信息  返回相册对象
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public PhotoType GetPTypeById(int id)
+        {
+            return pTDAL.GetPTypeById(id);
+        }
     }
 }

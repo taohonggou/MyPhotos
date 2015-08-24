@@ -45,7 +45,11 @@
             
             <td>{{:TypeDes}}</td>
            
-            <td><a class="edit" data-id="{{:TypeId}}" href="javascript:void(0)">编辑</a> <a data-id="{{:TypeId}}" class="del" href="javascript:void(0)">删除</a> <a href="#panel" id="btnPanel">添加</a></td>
+            <td>
+                <a class="edit" data-id="{{:TypeId}}" href="javascript:void(0)">编辑</a>
+                <a class="del" data-id="{{:TypeId}}"  href="javascript:void(0)">删除</a> 
+                <a href="#panel" id="btnPanel">添加</a>
+            </td>
         </tr>
         {{/for}}
     </script>
@@ -62,19 +66,19 @@
                 $.fancybox.hideLoading();
             })
 
-            //loadPhotos();
-
             loadPhotoType();
 
-           // init();
+            init();
         });
 
-        //加载相册  初始化下拉框
+        //加载相册
         function loadPhotoType() {
             $.getJSON("Handler/GetAllPhotoType.ashx?_" + Math.random(), function (array) {
                 var html = $("#tmpl").render({ array: array });
                 $("#photoType").html(html);
-            })
+                del();
+                edit();
+            });
         }
 
         //给页面上的按钮注册事件
@@ -93,25 +97,29 @@
                 closeSpeed: 150,
 
                 closeBtn: false,
+
+                afterClose: function () {
+                    $("#btnCancel").click();//清空文本框的值
+                }
             });
+
 
             //给取消按钮注册事件
             $("#btnCancel").click(function () {
                 $.fancybox.close();
                 //清空文本框值
-                $("#f1 input[type=text]").val("");
+                $("#f1 input[type=text],#f1 textarea").val("");
             });
 
             //给确认按钮注册事件
             $("#btnSure").click(function () {
                 //要post过去的json形式字符串
                 var jsonStr = getJsonStr("f1");
-                $.post("Handler/Edit.ashx?action="+action, { "json": jsonStr }, function (msg) {
-                    if (msg == 1) {//成功
+                $.post("Handler/EditPhotoType.ashx?action=" + action, { "json": jsonStr }, function (msg) {
+                    if (msg == "1") {//成功
                        alert("操作成功");
-
                         $("#btnCancel").click();//清空文本框的值
-                        loadPhotos();
+                        loadPhotoType();
                     } else {
                         //失败
                         alert("操作失败");
@@ -132,29 +140,24 @@
             return jsonStr;
         }
 
-       
-
-       
-
         //给编辑按钮注册事件
         function edit() {
             $(".edit").click(function () {
-                //记录修改操作
                 action = "edit";
-
+                //记录修改操作
                 var id = $(this).attr("data-id");
                 //打开弹出层
                 $.fancybox.open($("#panel"));
                 //从服务器获取数据
-                //$.getJSON("Handler/GetPhotoById.ashx", { id: id }, function (json) {
-                    //setData("f1", json);
-                //})
+                $.getJSON("Handler/GetPhotoTypeById.ashx", { id: id }, function (json) {
+                    setData("f1", json);
+                })
             });
         }
 
         //给层的标签赋值
         function setData(formId,json) {
-            var formEles = $("#" + formId + " input[name],#" + formId + " select[name]");
+            var formEles = $("#" + formId + " input[name],#" + formId + " textarea[name]");
             for (var key in json) {
                 for (var i = 0; i < formEles.length; i++) {
                     if (formEles[i].name == key) {
@@ -165,26 +168,11 @@
             }
         }
 
-        //删除图片方法
+        //删除相册方法
         function del() {
             //注册事件
             $(".del").click(function () {
-                //获得id
-                var id = $(this).attr("data-id");
-                $.get("Handler/Edit.ashx", { id: id, action: "delete" }, function (msg) {
-                    //1成功  2失败  3有评论
-                    if (msg == 1) {
-                        //alert("删除成功");
-                        loadPhotos();//重新加载表格
-                    } else if (msg == 2) {
-                        alert("删除失败");
-                    }
-                    else if (msg == 3) {
-                        alert("有评论");
-                    } else {
-                        alert("未知错误");
-                    }
-                })
+                alert("次相册下有照片，谨慎操作");
                 return;
             });
         }
@@ -194,8 +182,8 @@
     <center>
         <h2>管理员页面</h2>
         <br />
-        <a href="#">图片管理</a> |
-        <a href="#">相册管理</a> |
+        <a href="index.html">图片管理</a> |
+        <a href="PhotoType.html">相册管理</a> |
         <a href="#">用户管理</a> |
         <a href="#">留言管理</a> |
         <a href="exit.ashx">退出</a>
@@ -210,11 +198,9 @@
     <!--添加的层-->
     <div id="panel" style="width:300px;display:none;">
         <form id="f1">
-            <input type="hidden" id="hdPid" name="PId" value="-1" /><!--这个给隐藏域设定一个初始值 防止在添加是id值为空出错-->
-            相册：<select id="ddlType" name="PTypeId"></select><br />
-            标题：<input type="text" id="txtTitle" name="PTitle" /><br />
-            路径：<input type="text" id="txtUrl" name="PUrl" /><br />
-            描述：<input type="text" id="txtDes" name="PDes" /><br />
+            <input type="hidden" id="hdPid" name="TypeId" value="-1" /><!--这个给隐藏域设定一个初始值 防止在添加是id值为空出错-->
+            名称：<input type="text" name="TypeName" id="txtName" /><br />
+            描述：<textarea rows="3"  cols="22" id="txtDes" name="TypeDes" ></textarea><br />
             <input type="button" id="btnSure" value="确定" />&nbsp;<input id="btnCancel" type="button" value="取消" />
         </form>
     </div>
